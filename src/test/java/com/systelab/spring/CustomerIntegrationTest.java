@@ -21,7 +21,7 @@ public class CustomerIntegrationTest {
 
     @Test
     public void gettingTheCustomers() throws Exception {
-        Assertions.assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/customers",
+        Assertions.assertThat(this.restTemplate.getForObject("/customers",
                 String.class)).contains("Josh");
     }
 }
