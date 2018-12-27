@@ -1,4 +1,4 @@
-package com.systelab.spring;
+package com.systelab.spring.unit;
 
 import com.systelab.spring.model.Customer;
 import org.junit.jupiter.api.Assertions;
