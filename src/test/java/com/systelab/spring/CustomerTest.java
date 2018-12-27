@@ -8,9 +8,18 @@ public class CustomerTest {
 
     @Test
     public void creation() {
-        Customer customer=Customer.of("Venkat", "Subramaniam");
+        Customer customer = Customer.of("Venkat", "Subramaniam");
 
-        Assertions.assertTrue(customer.getFirstName().equals("Venkat"));
-        Assertions.assertTrue(customer.getLastName().equals("Subramaniam"));
+        Assertions.assertNull(customer.getId());
+        Assertions.assertEquals(customer.getFirstName(), "Venkat");
+        Assertions.assertEquals(customer.getLastName(), "Subramaniam");
+    }
+
+    @Test
+    public void creationWithNullThrowsException() {
+        Assertions.assertThrows(NullPointerException.class, () -> Customer.of(null, null));
+        Assertions.assertThrows(NullPointerException.class, () -> Customer.of("Venkat", null));
+        Assertions.assertThrows(NullPointerException.class, () -> Customer.of(null, "Subramaniam"));
+
     }
 }

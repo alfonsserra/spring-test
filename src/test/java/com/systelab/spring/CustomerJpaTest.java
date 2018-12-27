@@ -20,8 +20,8 @@ public class CustomerJpaTest {
     @Test
     public void mapping() {
         Customer customer = this.tem.persistFlushFind(Customer.of("Venkat", "Subramaniam"));
-        Assertions.assertTrue(customer.getId().longValue()>.0);
-        Assertions.assertTrue(customer.getFirstName().equals("Venkat"));
-        Assertions.assertTrue(customer.getLastName().equals("Subramaniam"));
+        Assertions.assertNotNull(customer.getId());
+        Assertions.assertEquals(customer.getFirstName(),"Venkat");
+        Assertions.assertEquals(customer.getLastName(),"Subramaniam");
     }
 }
