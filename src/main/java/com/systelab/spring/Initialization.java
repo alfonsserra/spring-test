@@ -16,5 +16,7 @@ public class Initialization implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         System.out.println("Initialization...");
         this.customerRepository.save(Customer.of("Josh","Long"));
+        this.customerRepository.save(Customer.of("Antonio","Goncalves"));
+
     }
 }
