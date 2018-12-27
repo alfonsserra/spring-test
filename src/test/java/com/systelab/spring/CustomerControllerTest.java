@@ -2,13 +2,13 @@ package com.systelab.spring;
 
 import com.systelab.spring.model.Customer;
 import com.systelab.spring.service.CustomerRepository;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.Collections;
 
 @WebMvcTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class CustomerControllerTest {
 
     @MockBean

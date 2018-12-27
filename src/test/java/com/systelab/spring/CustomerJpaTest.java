@@ -1,16 +1,17 @@
 package com.systelab.spring;
 
 import com.systelab.spring.model.Customer;
-import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @DataJpaTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class CustomerJpaTest {
 
     @Autowired
@@ -18,10 +19,9 @@ public class CustomerJpaTest {
 
     @Test
     public void mapping() {
-        Customer customer=this.tem.persistFlushFind(Customer.of("Venkat", "Subramaniam"));
-
-        Assertions.assertThat(customer.getId()).isGreaterThan(0);
-        Assertions.assertThat(customer.getFirstName()).isEqualTo("Venkat");
-        Assertions.assertThat(customer.getLastName()).isEqualTo("Subramaniam");
+        Customer customer = this.tem.persistFlushFind(Customer.of("Venkat", "Subramaniam"));
+        Assertions.assertTrue(customer.getId().longValue()>.0);
+        Assertions.assertTrue(customer.getFirstName().equals("Venkat"));
+        Assertions.assertTrue(customer.getLastName().equals("Subramaniam"));
     }
 }

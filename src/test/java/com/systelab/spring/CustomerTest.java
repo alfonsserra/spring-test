@@ -1,8 +1,8 @@
 package com.systelab.spring;
 
 import com.systelab.spring.model.Customer;
-import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class CustomerTest {
 
@@ -10,7 +10,7 @@ public class CustomerTest {
     public void creation() {
         Customer customer=Customer.of("Venkat", "Subramaniam");
 
-        Assertions.assertThat(customer.getFirstName()).isEqualTo("Venkat");
-        Assertions.assertThat(customer.getLastName()).isEqualTo("Subramaniam");
+        Assertions.assertTrue(customer.getFirstName().equals("Venkat"));
+        Assertions.assertTrue(customer.getLastName().equals("Subramaniam"));
     }
 }

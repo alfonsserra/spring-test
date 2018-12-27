@@ -2,17 +2,17 @@ package com.systelab.spring;
 
 import com.systelab.spring.model.Customer;
 import com.systelab.spring.service.CustomerRepository;
-import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
 
 @DataJpaTest
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class CustomerRepositoryTest {
 
     @Autowired
@@ -25,8 +25,8 @@ public class CustomerRepositoryTest {
 
         List<Customer> customersOrderByName=this.repository.findSorted();
 
-        Assertions.assertThat(customersOrderByName.size()).isEqualTo(2);
-        Assertions.assertThat(customersOrderByName.get(0).getFirstName()).isEqualTo("Mark");
-        Assertions.assertThat(customersOrderByName.get(1).getFirstName()).isEqualTo("Venkat");
+        Assertions.assertTrue(customersOrderByName.size()==2);
+        Assertions.assertTrue(customersOrderByName.get(0).getFirstName().equals("Mark"));
+        Assertions.assertTrue(customersOrderByName.get(1).getFirstName().equals("Venkat"));
     }
 }
