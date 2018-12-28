@@ -5,5 +5,5 @@ workflow "New workflow" {
 
 action "GitHub Action for Maven" {
   uses = "./maven"
-  runs = "clean install"
+  args = "clean install"
 }
