@@ -16,6 +16,20 @@ public class CustomerTest {
     }
 
     @Test
+    public void emailInitialNull() {
+        Customer customer = Customer.of("Venkat", "Subramaniam");
+        Assertions.assertNull(customer.getEMail());
+    }
+
+    @Test
+    public void emailIsSet() {
+        Customer customer = Customer.of("Venkat", "Subramaniam");
+        customer.setEMail("venkats@agiledeveloper.com");
+        Assertions.assertEquals(customer.getEMail(), "venkats@agiledeveloper.com");
+    }
+
+
+    @Test
     public void creationWithNullThrowsException() {
         Assertions.assertThrows(NullPointerException.class, () -> Customer.of(null, null));
         Assertions.assertThrows(NullPointerException.class, () -> Customer.of("Venkat", null));

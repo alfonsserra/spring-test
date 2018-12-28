@@ -8,8 +8,7 @@ import javax.persistence.Id;
 
 
 @Data
-@EqualsAndHashCode
-@NoArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
 @RequiredArgsConstructor(staticName = "of")
 @Entity
 public class Customer {

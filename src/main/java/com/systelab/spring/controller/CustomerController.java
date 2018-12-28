@@ -17,7 +17,7 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @Autowired
-    public void setCustomerRepository(CustomerRepository customerRepository) {
+    public CustomerController(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 
