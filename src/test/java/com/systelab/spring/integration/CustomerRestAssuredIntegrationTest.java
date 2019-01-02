@@ -49,6 +49,8 @@ public class CustomerRestAssuredIntegrationTest {
 
     @Test
     public void testGetUserList() {
-        given().contentType(ContentType.JSON).when().get("/customers").then().statusCode(200).body("firstName", hasItems("Josh","Antonio"));
+        given().contentType(ContentType.JSON)
+                .when().get("/customers")
+                .then().assertThat().statusCode(200).and().body("firstName", hasItems("Josh","Antonio"));
     }
 }
