@@ -6,7 +6,6 @@ import io.restassured.config.ObjectMapperConfig;
 import io.restassured.http.ContentType;
 import io.restassured.mapper.factory.Jackson2ObjectMapperFactory;
 import io.restassured.parsing.Parser;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -51,6 +50,6 @@ public class CustomerRestAssuredIntegrationTest {
     public void testGetUserList() {
         given().contentType(ContentType.JSON)
                 .when().get("/customers")
-                .then().assertThat().statusCode(200).and().body("firstName", hasItems("Josh","Antonio"));
+                .then().assertThat().statusCode(200).and().body("firstName", hasItems("Josh", "Antonio"));
     }
 }
